@@ -34,6 +34,7 @@ public class RedesController {
     }
 
     public void ip() throws IOException {
+    	System.out.println("Apresentando os Adaptadores e seus respectivos endereços ipv4:");
         if (os.contains("Windows")) {
             Process process = executeProcess(Constants.IP_CONFIG_WINDOWS);
             InputStream inputStream = process.getInputStream();
@@ -48,7 +49,7 @@ public class RedesController {
                 }
                 if (linha.contains("IPv4")) {
                     ipv4 = linha.split(":")[1];
-                    System.out.println("\nAdaptador : " + adaptador + "\n Endereço ipv4:" + ipv4);
+                    System.out.println("Adaptador : " + adaptador + "\n Endereço ipv4:" + ipv4+"\n");
                 }
                 linha = bufferedReader.readLine();
             }
@@ -68,8 +69,8 @@ public class RedesController {
                     adaptador = linha.split(":")[0];
                 }
                 if (linha.contains("inet ")) {
-                    ipv4 = linha.split(" ")[1];
-                    System.out.println("\nAdaptador : " + adaptador + "\n Endereço ipv4:" + ipv4);
+                    ipv4 = linha.split(" ")[9];
+                    System.out.println("Adaptador : " + adaptador + "\n Endereço ipv4:" + ipv4+"\n");
                 }
                 linha = bufferedReader.readLine();
             }
@@ -126,7 +127,7 @@ public class RedesController {
             System.err.println("Sai daqui, usuário de Mac grrr");
             throw new UnexpectedException("Quem usa Mac não tem lugar aqui");
         }
-
-        System.out.println("A média de tempo é" + media);
+        System.out.println("Comando ping executado em www.google.com.");
+        System.out.println("A média de tempo é " + media);
     }
 }
