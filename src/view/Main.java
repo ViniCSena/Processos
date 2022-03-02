@@ -31,6 +31,9 @@ public class Main {
     			case 0:
     				System.out.println("Obrigado por utilizar este programa.");
     				break;
+				default:
+						System.out.println("Opção desconhecida. Escolha novamente");
+						break;
     			}
     		}catch (IOException e) {
 				System.err.println("Erro. não foi possível executar o processo. Mensagem:" + e.getMessage() );
